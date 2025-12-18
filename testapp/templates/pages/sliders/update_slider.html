@@ -1,0 +1,42 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+<form method="POST" enctype="multipart/form-data" class="card p-4 shadow-sm" action="{% url 'dashboard.slider.update' edit_slider.id %}">
+    {% csrf_token %}
+
+    <!-- Title -->
+    <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input type="text" name="title" class="form-control" value="{{ edit_slider.title }}" placeholder="Enter title" required>
+    </div>
+
+    <!-- Sub Title -->
+    <div class="mb-3">
+        <label class="form-label">Sub Title</label>
+        <input type="text" name="sub_title" class="form-control" value="{{ edit_slider.sub_title }}" placeholder="Enter sub title" required>
+    </div>
+
+    <!-- Description -->
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea name="description" rows="4" class="form-control" placeholder="Enter description" required>{{  edit_slider.description }}</textarea>
+    </div>
+
+    <!-- Image -->
+    <div class="mb-3">
+        <label class="form-label">upload Image</label>
+        <input type="file" name="image" class="form-control" accept="image/*" required>
+        {% if edit_slider.image %}
+        <div class="mt-2">
+            <p>Current Image:</p>
+            <img src="{{ edit_slider.image.url }}" alt="Current image" class="img-thumbnail" width="150">
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Submit -->
+    <button type="submit" class="btn btn-primary w-100">
+        Update
+    </button>
+</form>
+{% endblock %}

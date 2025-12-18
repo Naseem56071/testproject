@@ -1,0 +1,30 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+<form method="POST" enctype="multipart/form-data" class="card p-4 shadow-sm" action="{% url 'dashboard.service.save' %}">
+    {% csrf_token %}
+
+    <!-- Title -->
+    <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input type="text" name="title" class="form-control" placeholder="Enter title" required>
+    </div>
+
+    <!-- Description -->
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea name="description" rows="4" class="form-control" placeholder="Enter description" required></textarea>
+    </div>
+
+    <!-- Image -->
+    <div class="mb-3">
+        <label class="form-label">Image</label>
+        <input type="file" name="icon" class="form-control" accept="image/*" required>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary w-100">
+        Submit
+    </button>
+</form>
+{% endblock %}

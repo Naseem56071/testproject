@@ -35,6 +35,7 @@
         .sidebar .nav-link:hover {
             color: #fff;
             background: #1f2937;
+            border-radius: 20px;
         }
 
         .card-stat {
@@ -74,7 +75,7 @@
 
                             <!-- Dashboard -->
                             <li class="nav-item mb-4">
-                                <a class="nav-link active" href="#">
+                                <a class="nav-link active" href="{% url 'dashboard' %}">
                                     <i class="bi bi-speedometer2 me-2"></i>Dashboard
                                 </a>
                             </li>
@@ -88,7 +89,7 @@
                             <li class="nav-item">
                                 <a class="nav-link d-flex justify-content-between align-items-center"
                                     data-bs-toggle="collapse" href="#usersMenu" role="button">
-                                    <span>index</span>
+                                    <span>Langing page</span>
                                     <i class="bi bi-chevron-down small"></i>
                                 </a>
 
@@ -98,10 +99,10 @@
                                             <a class="nav-link" href="{% url 'dashboard.sliders.index.html' %}">sliders</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Add User</a>
+                                            <a class="nav-link" href="{% url 'dashboard.about.index.html' %}">About</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Roles</a>
+                                            <a class="nav-link" href="{% url 'dashboard.services.index.html' %}">Services</a>
                                         </li>
                                     </ul>
                                 </div>
